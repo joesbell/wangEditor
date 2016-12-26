@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./wangEditor-master/dist/css/wangEditor.min.css">
+</head>
+<body>
+
+<!--插件来自wangEditor-->
+
+<!--宽度只能从文本框的父级来限制，高度可以之间限制-->
+<div style="width: 500px">
+    <div id="div1" style="height:400px;max-height:500px;">
+        <p class="tp">fffff</p>
+        <p>fffff</p>
+        <p>fffff</p>
+        <p>fffff</p>
+    </div>
+</div>
+<button id="btn1">销毁</button>
+<button id="btn2">恢复</button>
+
+
+
+
+</body>
+<!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript" src="./wangEditor-master/dist/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./wangEditor-master/dist/js/wangEditor.min.js"></script>
+<!--这里引用jquery和wangEditor.js-->
+<script type="text/javascript">
+//    创建编辑器
+    var editor = new wangEditor('div1');
+    editor.create();
+//// 禁用
+//editor.disable();
+//
+// 启用
+editor.enable();
+
+//    $('#btn1').click(function () {
+//        // 销毁编辑器
+//        editor.destroy();
+//    });
+
+$('#btn1').click(function () {
+    // 获取编辑器区域完整html代码
+    var html = editor.$txt.html();
+
+    // 获取编辑器纯文本内容
+    var text = editor.$txt.text();
+
+    // 获取格式化后的纯文本
+    var formatText = editor.$txt.formatText();
+    console.log(html,text,formatText);
+});
+
+//    $('#btn2').click(function () {
+//        // 恢复编辑器
+//        editor.undestroy();
+//    });
+
+//$('#btn2').click(function () {
+//    // 清空内容。
+//    editor.clear()
+//});
+
+$('#btn2').click(function () {
+    editor.$txt.find(".tp").html("哈哈")
+});
+    // 初始化编辑器的内容
+//    editor.$txt.html('<p>要初始化的内容</p><h1>哈哈哈</h1>');
+</script>
+</html>

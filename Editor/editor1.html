@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./wangEditor-master/dist/css/wangEditor.min.css">
+</head>
+<body>
+<!--宽度只能从文本框的父级来限制，高度可以之间限制-->
+<div style="width: 900px">
+    <div id="div1" style="height:400px;max-height:500px;">
+        <p class="tp">fffff</p>
+    </div>
+</div>
+
+
+
+</body>
+<!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript" src="./wangEditor-master/dist/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./wangEditor-master/dist/js/wangEditor.min.js"></script>
+<!--这里引用jquery和wangEditor.js-->
+<script type="text/javascript">
+    var editor = new wangEditor('div1');
+
+//    // 普通的自定义菜单
+//    editor.config.menus = [
+//        'source',
+//        '|',     // '|' 是菜单组的分割线
+//        'bold',
+//        'underline',
+//        'italic',
+//        'strikethrough',
+//        'eraser',
+//        'forecolor',
+//        'bgcolor'
+//    ];
+//
+//    // 仅仅想移除某几个菜单，例如想移除『插入代码』和『全屏』菜单：
+//    // 其中的 wangEditor.config.menus 可获取默认情况下的菜单配置
+//    // editor.config.menus = $.map(wangEditor.config.menus, function(item, key) {
+//    //     if (item === 'insertcode') {
+//    //         return null;
+//    //     }
+//    //     if (item === 'fullscreen') {
+//    //         return null;
+//    //     }
+//    //     return item;
+//    // });
+//
+//    editor.create();
+
+
+//    菜单配置项
+        editor.config.menus = [
+            'source',//源码
+            '|', //'|' 是菜单组的分割线
+            'bold',//加粗
+            'underline',//下划线
+            'italic',//斜体
+            'strikethrough',//删除线
+            'eraser',//清空格式
+            'forecolor',//文字颜色
+            'bgcolor',//背景色
+            'lineheight',//行高
+            'indent',//缩进
+            '|',//
+            'quote',//引用
+            'fontfamily',//字体
+            'fontsize',//字号
+            'head',//标题
+            'unorderlist',//无序列表
+            'orderlist',//有序列表
+            'alignleft',//左对齐
+            'aligncenter',//居中
+            'alignright',//右对齐
+            '|',
+            'link',//链接
+            'unlink',//取消链接
+            'table',//表格
+            'emotion',//表情
+            '|',
+            'img',//图片
+            'video',//视频
+            'location',//位置
+            'insertcode',//插入代码
+            '|',
+            'undo',//撤销
+            'redo',//重复
+            'fullscreen'//全屏
+        ];
+        editor.create();
+</script>
+</html>
